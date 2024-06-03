@@ -3,8 +3,10 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.ml.feature.{HashingTF, IDF, RegexTokenizer, StandardScaler, StopWordsRemover, VectorAssembler}
 import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.ml.{Pipeline, PipelineModel}
-import org.apache.spark.sql.functions._
+// import org.apache.spark.sql.functions._
 import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.types._
 
 object MovieRecommendation {
   def main(args: Array[String]): Unit = {
@@ -31,7 +33,14 @@ object MovieRecommendation {
 
     // Replace null or empty strings in 'overview' with a default value
     val defaultOverview = "No overview available"
-    val cleanedDF = df.withColumn("overview", when(col("overview").isNull || length(trim(col("overview"))) === 0, defaultOverview).otherwise(col("overview")))
+    val cleanedRDD = df.rdd.map { row =>
+      val overview = row.getAs[String]("overview")
+      val cleanedOverview = if (overview == null || overview.trim.isEmpty) defaultOverview else overview
+      Row.fromSeq(row.toSeq.updated(row.fieldIndex("overview"), cleanedOverview))
+    }
+
+    val schema = df.schema
+    val cleanedDF = spark.createDataFrame(cleanedRDD, schema)
 
     // Calculate medians or means for numerical columns
     val voteAverageMedian = cleanedDF.stat.approxQuantile("vote_average", Array(0.5), 0.001).head

@@ -5,22 +5,47 @@ Project: Movie Recommendation System
    Date: 2024-05-22
    Time Spent: 1 hours
 
-2. Andres & Andrew & Sophia
+2. Andres & Andrew & Sophia & Yohan
    Task: Looking for data sets and thinking of ideas. Also checking our ideas with Dr.Stanchev.
    Date: 2024-05-29
    Time Spent: 1 hours
 
-3. Andres
+3. Andres & Andrew & Sophia
+   Task: Design project structure, steps in pipeline, selected features, prediction system
+   Date: 2024-05-29
+   Time Spent: 3 hours
+
+4. Andres
    Task: Initial project setup, environment configuration, GitHub configuration and code blueprinting in Pandas.
    Date: 2024-05-29
    Time Spent: 6 hours
 
-4. Andres
+5. Andres
    Task: Using the pandas blueprint to write code using spark/scala
    Date: 2024-05-31 - 2024-06-2
    Time Spent: 10 hours
 
-5. Andres
+6. Andrew
+   Task: Using the pandas blueprint to write code using spark/scala
+   Date: 2024-06-2 - 2024-06-3
+   Time Spent: 5 hours
+
+7. Sophia
+   Task: Using the pandas blueprint to write code using spark/scala
+   Date: 2024-05-31 - 2024-06-1
+   Time Spent: 4.5 hours
+
+8. Yohan
+   Task: Using the pandas blueprint to write code using spark/scala
+   Date: 2024-06-1 - 2024-06-2
+   Time Spent: 4 hours
+
+9. Andres
    Task: Report
    Date: 2024-06-3
+   Time Spent: 2 hours
+
+10. Andres & Andrew & Sophia & Yohan
+   Task: Presentation
+   Date: 2024-06-03
    Time Spent: 2 hours
