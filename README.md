@@ -1,14 +1,11 @@
-# YourRepoName
+# arochaja/CSC369Project
 
-A brief description of what your project does and who it's for.
+A KNN Machine Learning Model for Movie Reccomendations
 
-![MovieReccomendations](https://github.com/arochaja/CSC369Project/raw/main/header-image.png)
+![MovieReccomendations](https://us.123rf.com/450wm/vikalevkina/vikalevkina2202/vikalevkina220200172/182538562-spilled-popcorn-and-paper-bucket-on-blue-background-movie-night-concept-copy-space-for-text.jpg?ver=6)
 
-##
-A machine learning model for movie recommendations. Made for CSC369 Final Project.
+![GitHub](https://img.shields.io/badge/contributors-3-brightgreen)
+![GitHub issues](https://img.shields.io/badge/issues-0-brightgreen)
+![GitHub stars](https://img.shields.io/badge/stars-70-brightgreen)
+![GitHub forks](https://img.shields.io/badge/forks-7-brightgreen)
 
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/arochaja/CSC369Project.git
