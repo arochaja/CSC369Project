@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project.iml" filepath="$PROJECT_DIR$/.idea/modules/Project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Project-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Project-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MovieRecommendation.iml" filepath="$PROJECT_DIR$/.idea/modules/MovieRecommendation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MovieRecommendation-build.iml" filepath="$PROJECT_DIR$/.idea/modules/MovieRecommendation-build.iml" />
     </modules>
   </component>
 </project>
