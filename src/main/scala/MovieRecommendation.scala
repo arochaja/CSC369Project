@@ -17,7 +17,7 @@ object MovieRecommendation {
     Logger.getLogger("akka").setLevel(Level.OFF)
 
     // Configure logging
-    PropertyConfigurator.configure("/Users/andresrocha/Downloads/CSC369/Lab6/src/main/resources/log4j.properties")
+    PropertyConfigurator.configure("/Users/andresrocha/Downloads/CSC369/Project/src/main/resources/log4j.properties")
 
     import spark.implicits._
 
@@ -60,7 +60,7 @@ object MovieRecommendation {
     val hashingTF = new HashingTF()
       .setInputCol("filtered_tokens")
       .setOutputCol("raw_features")
-      .setNumFeatures(10000)
+      .setNumFeatures(10000) //The vector is capped at 10000 for easy comparison
 
     val idf = new IDF()
       .setInputCol("raw_features")
@@ -103,6 +103,7 @@ object MovieRecommendation {
           val similarity = cosineSimilarity(queryFeatures, features)
           (title, overview, voteAvg, voteCount, popularity, runtime, similarity)
       }
+
 
       val nearestNeighbors = similarities.sort($"_7".desc).take(k)
       spark.createDataFrame(nearestNeighbors).toDF("title", "overview", "vote_average", "vote_count", "popularity", "runtime", "similarity")
