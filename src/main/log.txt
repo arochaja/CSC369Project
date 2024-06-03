@@ -20,3 +20,7 @@ Project: Movie Recommendation System
    Date: 2024-05-31 - 2024-06-2
    Time Spent: 10 hours
 
+5. Andres
+   Task: Report
+   Date: 2024-06-3
+   Time Spent: 2 hours
