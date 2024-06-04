@@ -3,10 +3,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.ml.feature.{HashingTF, IDF, RegexTokenizer, StandardScaler, StopWordsRemover, VectorAssembler}
 import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.ml.{Pipeline, PipelineModel}
-// import org.apache.spark.sql.functions._
-import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.Row
-import org.apache.spark.sql.types._
 
 object MovieRecommendation {
   def main(args: Array[String]): Unit = {
