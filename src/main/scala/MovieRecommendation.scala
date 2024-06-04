@@ -3,7 +3,6 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.ml.feature.{HashingTF, IDF, RegexTokenizer, StandardScaler, StopWordsRemover, VectorAssembler}
 import org.apache.spark.ml.linalg.Vector
 import org.apache.spark.ml.{Pipeline, PipelineModel}
-import org.apache.spark.sql.Row
 
 object MovieRecommendation {
   def main(args: Array[String]): Unit = {
@@ -16,7 +15,7 @@ object MovieRecommendation {
     Logger.getLogger("akka").setLevel(Level.OFF)
 
     // Configure logging
-    PropertyConfigurator.configure("/Users/andresrocha/Downloads/CSC369/Project/src/main/resources/log4j.properties")
+    PropertyConfigurator.configure("src/main/resources/log4j.properties")
 
     import spark.implicits._
 
@@ -30,14 +29,7 @@ object MovieRecommendation {
 
     // Replace null or empty strings in 'overview' with a default value
     val defaultOverview = "No overview available"
-    val cleanedRDD = df.rdd.map { row =>
-      val overview = row.getAs[String]("overview")
-      val cleanedOverview = if (overview == null || overview.trim.isEmpty) defaultOverview else overview
-      Row.fromSeq(row.toSeq.updated(row.fieldIndex("overview"), cleanedOverview))
-    }
-
-    val schema = df.schema
-    val cleanedDF = spark.createDataFrame(cleanedRDD, schema)
+    val cleanedDF = df.na.fill(Map("overview" -> defaultOverview))
 
     // Calculate medians or means for numerical columns
     val voteAverageMedian = cleanedDF.stat.approxQuantile("vote_average", Array(0.5), 0.001).head
@@ -109,7 +101,6 @@ object MovieRecommendation {
           val similarity = cosineSimilarity(queryFeatures, features)
           (title, overview, voteAvg, voteCount, popularity, runtime, similarity)
       }
-
 
       val nearestNeighbors = similarities.sort($"_7".desc).take(k)
       spark.createDataFrame(nearestNeighbors).toDF("title", "overview", "vote_average", "vote_count", "popularity", "runtime", "similarity")
