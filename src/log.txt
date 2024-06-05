@@ -49,3 +49,8 @@ Project: Movie Recommendation System
    Task: Presentation
    Date: 2024-06-03
    Time Spent: 2 hours
+
+10. Andres
+   Task: Worked around SQL dependencies and updated report
+   Date: 2024-06-03
+   Time Spent: 1.5 hours
